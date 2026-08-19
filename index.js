@@ -22,6 +22,7 @@ async function init() {
             name: 'variant',
             message: '¿Qué variante quieres usar?',
             choices: [
+                { title: green('Nix.js Kit (Full-stack)'), value: 'kit', description: 'SSR/SSG, routing, islands, actions, content — meta-framework completo' },
                 { title: yellow('Vite + TypeScript'), value: 'vite-ts', description: 'Recomendado para DX rápida y tipado estricto' },
                 { title: yellow('Vite + JavaScript'), value: 'vite-js', description: 'Vite sin compilación de TS' },
                 { title: blue('Ionic + Nix.js (Capacitor)'), value: 'nix-ionic', description: 'Template oficial con nix-ionic (Nix.js + Ionic + Capacitor)' },
