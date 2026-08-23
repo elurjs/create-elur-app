@@ -40,7 +40,7 @@ src/
 
 ## Modular Loading
 
-This template uses **nix-ionic v1.3.1** modular component loading.
+This template uses **nix-ionic v1.4.14** modular component loading.
 Import only the bundles your app needs in `main.ts`:
 
 ```ts

@@ -13,14 +13,14 @@
     "@capacitor/android": "^8.2.0",
     "@capacitor/cli": "^8.2.0",
     "@capacitor/core": "^8.2.0",
-    "@deijose/nix-ionic": "^1.4.9",
-    "@deijose/nix-js": "^2.5.3",
+    "@deijose/nix-ionic": "^1.4.14",
+    "@deijose/nix-js": "^3.2.1",
     "@ionic/core": "^8.8.1",
     "ionicons": "^8.0.13"
   },
   "devDependencies": {
-    "@deijose/nix-js-testing": "^0.1.3",
-    "@deijose/vite-plugin-nix-js": "^1.0.0",
+    "@deijose/nix-js-testing": "^0.1.4",
+    "@deijose/vite-plugin-nix-js": "^1.0.1",
     "happy-dom": "^20.8.3",
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
