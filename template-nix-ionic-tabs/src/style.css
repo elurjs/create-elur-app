@@ -1,62 +1,12 @@
 :root {
-  --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+  --ion-color-primary: #4f46e5;
+  --ion-color-primary-rgb: 79, 70, 229;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #463ec9;
+  --ion-color-primary-tint: #6159e8;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-ion-content {
-  --padding-bottom: calc(88px + env(safe-area-inset-bottom));
-}
-
-.app-tab-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: stretch;
-  min-height: 64px;
-  padding-bottom: env(safe-area-inset-bottom);
-
-  --background: #ffffff;
-  --color: #6b7280;
-  --color-selected: #2563eb;
-  --border: 0;
-
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.app-tab-bar ion-tab-button {
-  min-height: 64px;
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  text-transform: none;
-}
-
-.app-tab-bar ion-tab-button.tab-active {
-  font-weight: 600;
-}
-
-.app-tab-bar ion-tab-button ion-icon {
-  font-size: 1.2rem;
-  margin-bottom: 2px;
-}
-
-.app-tab-bar ion-tab-button.tab-active ion-icon,
-.app-tab-bar ion-tab-button.tab-active ion-label {
-  color: #2563eb;
-}
-
-.login-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ion-card {
-  border-radius: 16px;
+body {
+  margin: 0;
 }

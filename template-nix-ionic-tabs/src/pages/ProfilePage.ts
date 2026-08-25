@@ -1,18 +1,28 @@
-import { html } from "@deijose/nix-js";
-import { IonPage, nixRouter, nixRouterState } from "@deijose/nix-ionic";
+import { html, nixRouter, signal } from "@deijose/nix-js";
+import { IonPage, createAlert } from "@deijose/nix-ionic";
 import type { PageContext } from "@deijose/nix-ionic";
 import { authStore } from "../stores/auth";
 
 export class ProfilePage extends IonPage {
-    constructor(ctx: PageContext) {
-        super(ctx.lc);
-    }
+  private alert = createAlert();
+  private visits = signal(0);
 
-    override render() {
-        const router = nixRouter();
-        const routerState = nixRouterState();
+  constructor(ctx: PageContext) {
+    super(ctx.lc);
+  }
 
-        return html`
+  override ionViewWillEnter() {
+    this.visits.value++;
+  }
+
+  override onUnmount() {
+    this.alert.dispose();
+  }
+
+  override render() {
+    const router = nixRouter();
+
+    return html`
       <ion-header>
         <ion-toolbar>
           <ion-title>Profile</ion-title>
@@ -22,25 +32,36 @@ export class ProfilePage extends IonPage {
       <ion-content class="ion-padding">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Router State Demo</ion-card-title>
-            <ion-card-subtitle>Reactive path and params from nixRouterState()</ion-card-subtitle>
+            <ion-card-title>Profile</ion-card-title>
+            <ion-card-subtitle>Visits: ${() => this.visits.value}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <p><strong>Current path:</strong> ${() => routerState.path.value}</p>
-            <p><strong>Can go back:</strong> ${() => String(routerState.canGoBack.value)}</p>
+            <p>Signed in as <strong>demo user</strong>.</p>
             <ion-button
               expand="block"
               color="danger"
-              @click=${() => {
+              @click=${() =>
+        this.alert.present({
+          header: "Sign out",
+          message: "Are you sure you want to sign out?",
+          buttons: [
+            { text: "Cancel", role: "cancel" },
+            {
+              text: "Sign out",
+              handler: () => {
                 authStore.logout();
                 router.replace("/login");
-            }}
+              },
+            },
+          ],
+        })}
             >
+              <ion-icon slot="start" name="log-out-outline"></ion-icon>
               Sign out
             </ion-button>
           </ion-card-content>
         </ion-card>
       </ion-content>
     `;
-    }
+  }
 }

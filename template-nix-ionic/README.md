@@ -1,76 +1,102 @@
 # Nix-Ionic App
 
-A mobile-first starter template powered by **[Nix.js](https://www.npmjs.com/package/@deijose/nix-js)** + **[Ionic](https://ionicframework.com/)** + **[Capacitor](https://capacitorjs.com/)**.
+A mobile/hybrid app built with [Nix.js](https://nix-js.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
 
-## Quick Start
+## Features
+
+- **Vite plugin** auto-registers Ionic components and icons from `html` templates
+- **IonRouterOutlet** with cache policies and lifecycle hooks
+- **Reactive overlays** — `createToast()`, `createAlert()`, `createModal()`, etc.
+- **IonBackButton** with router integration
+- **Optional Capacitor** — zero web bundle cost
+
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build for Production
+## Project structure
 
-```bash
-npm run build
+```text
+src/
+├── main.ts           # App entry — imports virtual registration module
+├── style.css         # Global styles + Ionic theme overrides
+├── pages/
+│   ├── HomePage.ts   # Home page with toast overlay demo
+│   └── AboutPage.ts  # About page with back button
+└── types/
+    └── css.d.ts      # CSS module type declarations
 ```
 
-## Deploy to Android
+## How auto-registration works
+
+The Vite plugin (`@deijose/nix-ionic/vite-plugin`) scans your `html` templates
+for `<ion-*>` tags and `<ion-icon name="...">` attributes, then generates a
+virtual module that imports and registers only what you use:
+
+```ts
+// main.ts
+import "virtual:nix-ionic/registration";
+```
+
+If you use tags or icons in lazy-loaded pages, add them to `allowTags` and
+`allowIcons` in `vite.config.ts` so they're registered before first use.
+
+## Adding a new page
+
+```ts
+import { html } from "@deijose/nix-js";
+import { IonPage } from "@deijose/nix-ionic";
+import type { PageContext } from "@deijose/nix-ionic";
+
+export class SettingsPage extends IonPage {
+  constructor(ctx: PageContext) {
+    super(ctx.lc);
+  }
+
+  override ionViewWillEnter() {
+    // Runs on every activation — even from cache
+  }
+
+  override render() {
+    return html`
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Settings</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>Settings content</p>
+      </ion-content>
+    `;
+  }
+}
+```
+
+Then add it to the router in `main.ts`:
+
+```ts
+const outlet = new IonRouterOutlet([
+  { path: "/", component: (ctx) => new HomePage(ctx) },
+  { path: "/settings", component: (ctx) => new SettingsPage(ctx) },
+]);
+```
+
+## Capacitor (optional native)
 
 ```bash
-# First build the web app
-npm run build
-
-# Sync with Capacitor
-npx cap sync android
-
-# Open Android Studio
+npx cap add android
+npx cap sync
 npx cap open android
 ```
 
-## Project Structure
+## Scripts
 
-```
-src/
-├── main.ts          # Entry point — Ionic setup & router
-├── style.css        # Global styles
-└── pages/
-    └── HomePage.ts  # Your first page (IonPage)
-```
-
-## Modular Loading
-
-This template uses **nix-ionic v1.4.14** modular component loading.
-Import only the bundles your app needs in `main.ts`:
-
-```ts
-import { layoutComponents } from "@deijose/nix-ionic/bundles/layout";
-import { navigationComponents } from "@deijose/nix-ionic/bundles/navigation";
-import { formComponents }   from "@deijose/nix-ionic/bundles/forms";
-import { overlayComponents } from "@deijose/nix-ionic/bundles/overlays";
-import { home, homeOutline } from "ionicons/icons";
-
-setupNixIonic({
-    components: [...layoutComponents, ...navigationComponents, ...formComponents],
-    icons: { home, "home-outline": homeOutline },
-});
-```
-
-Available bundles: `layout`, `navigation`, `forms`, `lists`, `feedback`, `buttons`, `overlays`, `all`.
-
-## Tabs and Bottom Navigation
-
-For tab-based apps, use the built-in helper:
-
-```ts
-import { createBottomTabBar } from "@deijose/nix-ionic";
-```
-
-It provides active-path sync without manual `window.location` listeners.
-
-## Learn More
-
-- [Nix.js Docs](https://github.com/DeijoseDevelop/nix-js)
-- [Nix-Ionic on npm](https://www.npmjs.com/package/@deijose/nix-ionic)
-- [Ionic Components](https://ionicframework.com/docs/components)
-- [Capacitor Docs](https://capacitorjs.com/docs)
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Typecheck + production build |
+| `npm run preview` | Preview production build |
+| `npm test` | Run unit tests |

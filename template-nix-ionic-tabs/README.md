@@ -1,69 +1,87 @@
 # Nix-Ionic Tabs App
 
-Complete starter template with:
+A mobile/hybrid app with bottom tabs, route guards, overlays, and NavigationManager — built with [Nix.js](https://nix-js.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
 
-- `IonRouterOutlet` route definitions and guards
-- `createBottomTabBar()` bottom navigation
-- `nixRouter()` navigation actions
-- `nixRouterState()` reactive route state
-- `setupNixIonic({ icons })` custom icon registration
+## Features
 
-## Quick Start
+- **Vite plugin** auto-registers Ionic components and icons from `html` templates
+- **Bottom tabs** with `createBottomTabBar` + `createTabsLayout`
+- **NavigationManager** — single authority for tabs, hooks, cache invalidation
+- **Route guards** — `beforeEnter` with redirect support
+- **Reactive overlays** — `createToast()`, `createAlert()`, etc.
+- **IonBackButton** with router integration
+- **Tab bar hiding** — hidden on login and detail pages via `hiddenPaths`
+- **Optional Capacitor** — zero web bundle cost
+
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+## Project structure
 
-```bash
-npm run build
-```
-
-## Included Routes
-
-- `/login` (public)
-- `/` (Home tab, protected)
-- `/map` (Map tab, protected)
-- `/map/route/:id` (detail page, protected, outside tab flow)
-- `/profile` (Profile tab, protected)
-
-## Files to Explore
-
-```
+```text
 src/
-├── main.ts
-├── style.css
+├── main.ts           # App entry — router, tabs, navigation manager
+├── style.css         # Global styles + Ionic theme
 ├── stores/
-│   └── auth.ts
+│   └── auth.ts       # Auth store (signal-based)
 └── pages/
-    ├── LoginPage.ts
-    ├── HomePage.ts
-    ├── MapPage.ts
-    ├── RouteDetailPage.ts
-    └── ProfilePage.ts
+    ├── HomePage.ts       # Home tab with toast demo
+    ├── MapPage.ts        # Map tab with route list
+    ├── RouteDetailPage.ts # Detail page (tab bar hidden, back button)
+    ├── ProfilePage.ts    # Profile tab with alert + sign out
+    └── LoginPage.ts      # Login page (no tabs, no guard)
 ```
 
-## Core Pattern
+## How tabs work
 
-`main.ts` wires everything:
+Navigation is driven by the Nix.js router, not Ionic's internal tab selection.
+Each `ion-tab-button` uses `@click.prevent.stop` to prevent Ionic's `select()`.
 
-1. Registers Ionic bundles and icons.
-2. Creates `IonRouterOutlet` with `beforeEnter` auth guard.
-3. Creates tabs with `createBottomTabBar()`.
-4. Mounts both outlet and tabs inside `<ion-app>`.
+```ts
+const tabBar = createBottomTabBar([
+  { path: "/", label: "Home", icon: "home-outline", activeIcon: "home", exact: true },
+  { path: "/map", label: "Map", icon: "map-outline", activeIcon: "map" },
+  { path: "/profile", label: "Profile", icon: "person-outline", activeIcon: "person" },
+], {
+  hiddenPaths: ["/login", "/map/route/*"],
+  icons: { home, "home-outline": homeOutline, map, "map-outline": mapOutline, ... },
+});
 
-## Android (Capacitor)
+const tabsLayout = createTabsLayout(outlet, tabBar);
+```
+
+`createTabsLayout` wraps the outlet and tab bar in `<ion-tabs>` with injected
+CSS to ensure the tab bar sits at the bottom.
+
+## Route guards
+
+```ts
+const requireAuth = () => (authStore.isAuthenticated.value ? true : "/login");
+
+const outlet = new IonRouterOutlet([
+  { path: "/login", component: (ctx) => new LoginPage(ctx) },
+  { path: "/", component: (ctx) => new HomePage(ctx), beforeEnter: requireAuth },
+  { path: "/map", component: (ctx) => new MapPage(ctx), beforeEnter: requireAuth },
+]);
+```
+
+## Capacitor (optional native)
 
 ```bash
-npm run build
-npx cap sync android
+npx cap add android
+npx cap sync
 npx cap open android
 ```
 
-## Learn More
+## Scripts
 
-- [Nix-Ionic on npm](https://www.npmjs.com/package/@deijose/nix-ionic)
-- [Ionic Components](https://ionicframework.com/docs/components)
-- [Capacitor Docs](https://capacitorjs.com/docs)
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Typecheck + production build |
+| `npm run preview` | Preview production build |
+| `npm test` | Run unit tests |
