@@ -1,6 +1,6 @@
-import { html, nixRouter } from "@deijose/nix-js";
-import { IonPage, createToast } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html, elurRouter } from "@elurjs/core";
+import { IonPage, createToast } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 
 export class HomePage extends IonPage {
   private toast = createToast();
@@ -14,20 +14,20 @@ export class HomePage extends IonPage {
   }
 
   override render() {
-    const router = nixRouter();
+    const router = elurRouter();
 
     return html`
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>My Nix-Ionic App</ion-title>
+          <ion-title>My Elur-Ionic App</ion-title>
         </ion-toolbar>
       </ion-header>
 
       <ion-content class="ion-padding">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Welcome to Nix-Ionic</ion-card-title>
-            <ion-card-subtitle>Powered by Nix.js + Ionic + Capacitor</ion-card-subtitle>
+            <ion-card-title>Welcome to Elur-Ionic</ion-card-title>
+            <ion-card-subtitle>Powered by Elur + Ionic + Capacitor</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             <p>Edit <code>src/pages/HomePage.ts</code> to get started.</p>
@@ -41,7 +41,7 @@ export class HomePage extends IonPage {
             <ion-button
               expand="block"
               fill="outline"
-              @click=${() => this.toast.present({ message: "Hello from Nix-Ionic!", duration: 2000 })}
+              @click=${() => this.toast.present({ message: "Hello from Elur-Ionic!", duration: 2000 })}
             >
               <ion-icon slot="start" name="rocket"></ion-icon>
               Show Toast

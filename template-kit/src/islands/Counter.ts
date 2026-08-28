@@ -1,5 +1,5 @@
-import { signal } from "@deijose/nix-js";
-import { html } from "@deijose/nix-js";
+import { signal } from "@elurjs/core";
+import { html } from "@elurjs/core";
 
 export default function Counter() {
   const count = signal(0);

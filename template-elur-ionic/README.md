@@ -1,6 +1,6 @@
-# Nix-Ionic App
+# Elur-Ionic App
 
-A mobile/hybrid app built with [Nix.js](https://nix-js.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
+A mobile/hybrid app built with [Elur](https://elur.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
 
 ## Features
 
@@ -32,13 +32,13 @@ src/
 
 ## How auto-registration works
 
-The Vite plugin (`@deijose/nix-ionic/vite-plugin`) scans your `html` templates
+The Vite plugin (`@elurjs/ionic/vite-plugin`) scans your `html` templates
 for `<ion-*>` tags and `<ion-icon name="...">` attributes, then generates a
 virtual module that imports and registers only what you use:
 
 ```ts
 // main.ts
-import "virtual:nix-ionic/registration";
+import "virtual:elur-ionic/registration";
 ```
 
 If you use tags or icons in lazy-loaded pages, add them to `allowTags` and
@@ -47,9 +47,9 @@ If you use tags or icons in lazy-loaded pages, add them to `allowTags` and
 ## Adding a new page
 
 ```ts
-import { html } from "@deijose/nix-js";
-import { IonPage } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html } from "@elurjs/core";
+import { IonPage } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 
 export class SettingsPage extends IonPage {
   constructor(ctx: PageContext) {

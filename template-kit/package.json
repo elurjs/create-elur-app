@@ -1,21 +1,21 @@
 {
-  "name": "nix-kit-app",
+  "name": "elur-kit-app",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "nix-js-kit dev",
-    "build": "nix-js-kit build",
-    "preview": "nix-js-kit preview",
-    "start": "nix-js-kit start",
-    "check": "nix-js-kit check",
-    "routes": "nix-js-kit routes",
-    "doctor": "nix-js-kit doctor",
+    "dev": "elur-kit dev",
+    "build": "elur-kit build",
+    "preview": "elur-kit preview",
+    "start": "elur-kit start",
+    "check": "elur-kit check",
+    "routes": "elur-kit routes",
+    "doctor": "elur-kit doctor",
     "typecheck": "tsc --noEmit",
     "test": "bun test"
   },
   "dependencies": {
-    "@deijose/nix-js": "latest",
-    "@deijose/nix-js-kit": "latest"
+    "@elurjs/core": "latest",
+    "@elurjs/kit": "latest"
   },
   "devDependencies": {
     "@types/bun": "latest",

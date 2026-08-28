@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
-import nixJs from "@deijose/vite-plugin-nix-js";
+import elurPlugin from "@elurjs/vite-plugin-elur";
 
 export default defineConfig({
-    plugins: [nixJs()],
+    plugins: [elurPlugin()],
 });

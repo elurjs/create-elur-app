@@ -1,4 +1,4 @@
-import { signal } from "@deijose/nix-js";
+import { signal } from "@elurjs/core";
 
 const isAuthenticated = signal(false);
 

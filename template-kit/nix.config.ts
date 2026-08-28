@@ -1,9 +1,9 @@
-import { defineConfig } from "@deijose/nix-js-kit/config";
+import { defineConfig } from "@elurjs/kit/config";
 
 export default defineConfig({
   lang: "en",
   cache: {
-    dir: ".nix-js/cache",
+    dir: ".elur/cache",
     defaultRevalidate: 60,
   },
   security: {

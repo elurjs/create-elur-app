@@ -1,6 +1,6 @@
-import { html, nixRouter, signal } from "@deijose/nix-js";
-import { IonPage, createAlert } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html, elurRouter, signal } from "@elurjs/core";
+import { IonPage, createAlert } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 import { authStore } from "../stores/auth";
 
 export class ProfilePage extends IonPage {
@@ -20,7 +20,7 @@ export class ProfilePage extends IonPage {
   }
 
   override render() {
-    const router = nixRouter();
+    const router = elurRouter();
 
     return html`
       <ion-header>

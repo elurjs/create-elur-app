@@ -1,6 +1,6 @@
-import { html } from "@deijose/nix-js";
-import { IonPage, IonBackButton } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html } from "@elurjs/core";
+import { IonPage, IonBackButton } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 
 export class AboutPage extends IonPage {
   constructor(ctx: PageContext) {
@@ -23,7 +23,7 @@ export class AboutPage extends IonPage {
           </ion-card-header>
           <ion-card-content>
             <p>
-              This template uses <strong>@deijose/nix-ionic v2</strong> with:
+              This template uses <strong>@elurjs/ionic v2</strong> with:
             </p>
             <ul>
               <li>Vite plugin for auto component/icon registration</li>

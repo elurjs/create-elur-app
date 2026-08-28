@@ -1,6 +1,6 @@
-# ❄️ Nix.js Project
+# ❄️ Elur Project
 
-Este proyecto fue generado con `create-nix-app`.
+Este proyecto fue generado con `create-elur-app`.
 
 ## Desarrollo
 

@@ -1,13 +1,13 @@
-import { html } from "@deijose/nix-js";
+import { html } from "@elurjs/core";
 
 export default () => html`
   <main>
-    <h1>Welcome to Nix.js Kit</h1>
-    <p>A full-stack meta-framework built on Nix.js.</p>
+    <h1>Welcome to Elur Kit</h1>
+    <p>A full-stack meta-framework built on Elur.</p>
     <nav>
-      <a href="/" data-nix-js-link>Home</a>
-      <a href="/about" data-nix-js-link>About</a>
-      <a href="/blog/hello-world" data-nix-js-link>Blog</a>
+      <a href="/" data-elur-link>Home</a>
+      <a href="/about" data-elur-link>About</a>
+      <a href="/blog/hello-world" data-elur-link>Blog</a>
     </nav>
   </main>
 `;

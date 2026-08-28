@@ -1,4 +1,4 @@
-import { defineCollection } from "@deijose/nix-js-kit/content";
+import { defineCollection } from "@elurjs/kit/content";
 
 export const collections = {
   blog: defineCollection({

@@ -1,6 +1,6 @@
-# Nix-Ionic Tabs App
+# Elur-Ionic Tabs App
 
-A mobile/hybrid app with bottom tabs, route guards, overlays, and NavigationManager — built with [Nix.js](https://nix-js.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
+A mobile/hybrid app with bottom tabs, route guards, overlays, and NavigationManager — built with [Elur](https://elur.dev) + [Ionic](https://ionicframework.com) + [Capacitor](https://capacitorjs.com).
 
 ## Features
 
@@ -38,7 +38,7 @@ src/
 
 ## How tabs work
 
-Navigation is driven by the Nix.js router, not Ionic's internal tab selection.
+Navigation is driven by the Elur router, not Ionic's internal tab selection.
 Each `ion-tab-button` uses `@click.prevent.stop` to prevent Ionic's `select()`.
 
 ```ts

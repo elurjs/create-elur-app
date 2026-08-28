@@ -8,25 +8,25 @@ import { blue, green, yellow, reset } from 'kolorist';
 const cwd = process.cwd();
 
 async function init() {
-    console.log(blue('\n❄️ ¡Bienvenido a Nix.js!\n'));
+    console.log(blue('\n❄️ ¡Bienvenido a Elur!\n'));
 
     const response = await prompts([
         {
             type: 'text',
             name: 'projectName',
             message: 'Nombre de tu proyecto:',
-            initial: 'nix-app'
+            initial: 'elur-app'
         },
         {
             type: 'select',
             name: 'variant',
             message: '¿Qué variante quieres usar?',
             choices: [
-                { title: green('Nix.js Kit (Full-stack)'), value: 'kit', description: 'SSR/SSG, routing, islands, actions, content — meta-framework completo' },
+                { title: green('Elur Kit (Full-stack)'), value: 'kit', description: 'SSR/SSG, routing, islands, actions, content — meta-framework completo' },
                 { title: yellow('Vite + TypeScript'), value: 'vite-ts', description: 'Recomendado para DX rápida y tipado estricto' },
                 { title: yellow('Vite + JavaScript'), value: 'vite-js', description: 'Vite sin compilación de TS' },
-                { title: blue('Ionic + Nix.js (Capacitor)'), value: 'nix-ionic', description: 'Template oficial con nix-ionic (Nix.js + Ionic + Capacitor)' },
-                { title: blue('Ionic + Nix.js + Tabs'), value: 'nix-ionic-tabs', description: 'Template completo con IonRouterOutlet + createBottomTabBar + guards' },
+                { title: blue('Ionic + Elur (Capacitor)'), value: 'elur-ionic', description: 'Template oficial con elur-ionic (Elur + Ionic + Capacitor)' },
+                { title: blue('Ionic + Elur + Tabs'), value: 'elur-ionic-tabs', description: 'Template completo con IonRouterOutlet + createBottomTabBar + guards' },
                 { title: blue('Vanilla TypeScript'), value: 'vanilla-ts', description: 'Sin bundler, puro TSC' },
                 { title: blue('Vanilla JavaScript'), value: 'vanilla-js', description: 'Cero build, import maps directo en navegador' }
             ]

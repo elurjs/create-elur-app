@@ -1,6 +1,6 @@
-import { html } from "@deijose/nix-js";
-import { IonPage, IonBackButton } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html } from "@elurjs/core";
+import { IonPage, IonBackButton } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 
 export class RouteDetailPage extends IonPage {
   private routeId: string;

@@ -1,17 +1,16 @@
 {
-  "name": "create-nix-app",
+  "name": "create-elur-app",
   "version": "1.0.28",
-  "description": "Scaffolding tool for Nix.js reactive micro-framework",
+  "description": "Scaffolding tool for Elur reactive framework",
   "type": "module",
   "bin": {
-    "create-nix-app": "index.js"
+    "create-elur-app": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "nix",
-    "nix.js",
+    "elur",
     "framework",
     "reactive",
     "cli",

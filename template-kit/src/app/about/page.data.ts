@@ -1,7 +1,7 @@
-import type { PageDataLoad } from "@deijose/nix-js-kit";
+import type { PageDataLoad } from "@elurjs/kit";
 
 export const load: PageDataLoad = async () => {
   return {
-    title: "About — Nix.js Kit",
+    title: "About — Elur Kit",
   };
 };

@@ -1,5 +1,5 @@
 {
-    "name": "nix-vanilla-ts",
+    "name": "elur-vanilla-ts",
     "version": "1.0.0",
     "type": "module",
     "scripts": {
@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@deijose/nix-js": "^3.5.0"
+        "@elurjs/core": "^3.5.0"
     },
     "devDependencies": {
         "typescript": "~5.9.3"

@@ -1,12 +1,12 @@
-import { signal, html, mount } from "@deijose/nix-js";
-import type { NixTemplate } from "@deijose/nix-js";
+import { signal, html, mount } from "@elurjs/core";
+import type { ElurTemplate } from "@elurjs/core";
 
-function App(): NixTemplate {
+function App(): ElurTemplate {
     const count = signal<number>(0);
 
     return html`
         <main>
-            <h1><img src="/nix-js-logo.png" alt="Nix.js Logo" /> Nix.js + TypeScript</h1>
+            <h1><img src="/elur-logo.png" alt="Elur Logo" /> Elur + TypeScript</h1>
             <button @click=${() => count.update((c: number) => c + 1)}>
                 Clicks: ${() => count.value}
             </button>

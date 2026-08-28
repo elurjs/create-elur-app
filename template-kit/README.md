@@ -1,6 +1,6 @@
-# Nix.js Kit App
+# Elur Kit App
 
-A full-stack application built with [Nix.js Kit](https://github.com/deiver/nix-js-kit).
+A full-stack application built with [Elur Kit](https://github.com/deiver/elur-kit).
 
 ## Getting Started
 
@@ -56,5 +56,5 @@ public/             Static assets
 
 ## Learn More
 
-- [Nix.js Kit Documentation](https://github.com/deiver/nix-js-kit)
-- [Nix.js Microframework](https://github.com/deiver/nix-js-microframework)
+- [Elur Kit Documentation](https://github.com/deiver/elur-kit)
+- [Elur](https://github.com/deiver/elur-core)

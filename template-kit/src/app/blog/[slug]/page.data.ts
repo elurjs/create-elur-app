@@ -1,5 +1,5 @@
-import type { PageDataLoad } from "@deijose/nix-js-kit";
-import { getEntry } from "@deijose/nix-js-kit/content";
+import type { PageDataLoad } from "@elurjs/kit";
+import { getEntry } from "@elurjs/kit/content";
 
 export const load: PageDataLoad = async ({ params }) => {
   const post = await getEntry("blog", params.slug as string);

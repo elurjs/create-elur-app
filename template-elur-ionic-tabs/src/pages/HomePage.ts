@@ -1,6 +1,6 @@
-import { html, nixRouter } from "@deijose/nix-js";
-import { IonPage, createToast } from "@deijose/nix-ionic";
-import type { PageContext } from "@deijose/nix-ionic";
+import { html, elurRouter } from "@elurjs/core";
+import { IonPage, createToast } from "@elurjs/ionic";
+import type { PageContext } from "@elurjs/ionic";
 
 export class HomePage extends IonPage {
   private toast = createToast();
@@ -14,7 +14,7 @@ export class HomePage extends IonPage {
   }
 
   override render() {
-    const router = nixRouter();
+    const router = elurRouter();
 
     return html`
       <ion-header>
@@ -26,7 +26,7 @@ export class HomePage extends IonPage {
       <ion-content class="ion-padding">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Nix-Ionic Tabs</ion-card-title>
+            <ion-card-title>Elur-Ionic Tabs</ion-card-title>
             <ion-card-subtitle>IonRouterOutlet + createBottomTabBar + NavigationManager</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
