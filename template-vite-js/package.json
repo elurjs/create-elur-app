@@ -1,22 +1,22 @@
 {
-    "name": "elur-vite-js",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "preview": "vite preview",
-        "test": "vitest run",
-        "coverage": "vitest run --coverage"
-    },
-    "dependencies": {
-        "@elurjs/core": "^3.6.0"
-    },
-    "devDependencies": {
-        "@elurjs/core-testing": "^0.1.4",
-        "@elurjs/vite-plugin-elur": "^2.1.0",
-        "happy-dom": "^20.8.3",
-        "vite": "^8.0.0",
-        "vitest": "^4.0.18"
-    }
+  "name": "elur-vite-js",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@elurjs/core": "{{version:@elurjs/core}}"
+  },
+  "devDependencies": {
+    "@elurjs/core-testing": "{{version:@elurjs/core-testing}}",
+    "@elurjs/vite-plugin-elur": "{{version:@elurjs/vite-plugin-elur}}",
+    "happy-dom": "{{version:happy-dom}}",
+    "vite": "{{version:vite}}",
+    "vitest": "{{version:vitest}}"
+  }
 }

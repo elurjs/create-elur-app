@@ -14,12 +14,12 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@elurjs/core": "latest",
-    "@elurjs/kit": "latest"
+    "@elurjs/core": "{{version:@elurjs/core}}",
+    "@elurjs/kit": "{{version:@elurjs/kit}}"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "typescript": "^5.5.0"
+    "typescript": "{{version:typescript}}"
   },
   "engines": {
     "node": ">=20.19.0"

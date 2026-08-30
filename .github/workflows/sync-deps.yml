@@ -1,0 +1,34 @@
+name: Sync deps
+
+on:
+  schedule:
+    - cron: "17 8 * * 1"  # lunes ~8:17
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run sync:deps
+      - run: npm run typecheck && npm run build && npm test
+      - name: Abrir PR si hay cambios
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/sync-deps
+          delete-branch: true
+          title: "chore: sincronizar versiones de templates"
+          body: |
+            Actualización automática de `versions.json` contra el registry de npm.
+            Typecheck, build y tests de scaffolding en verde.
+          commit-message: "chore: sync template dependency versions"
+          labels: dependencies

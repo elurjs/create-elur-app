@@ -1,15 +1,15 @@
 {
-    "name": "elur-vanilla-ts",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "tsc --watch & npx serve .",
-        "build": "tsc"
-    },
-    "dependencies": {
-        "@elurjs/core": "^3.6.0"
-    },
-    "devDependencies": {
-        "typescript": "~5.9.3"
-    }
+  "name": "elur-vanilla-ts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch & npx serve .",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@elurjs/core": "{{version:@elurjs/core}}"
+  },
+  "devDependencies": {
+    "typescript": "{{version:typescript}}"
+  }
 }
