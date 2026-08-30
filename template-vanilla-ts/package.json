@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@elurjs/core": "^3.5.0"
+        "@elurjs/core": "^3.6.0"
     },
     "devDependencies": {
         "typescript": "~5.9.3"
