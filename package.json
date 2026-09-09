@@ -1,6 +1,6 @@
 {
   "name": "create-elur-app",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Scaffolding tool for Elur reactive framework",
   "type": "module",
   "bin": {
@@ -39,13 +39,14 @@
   "author": "Deiver Vasquez",
   "license": "MIT",
   "dependencies": {
-    "@clack/prompts": "^0.10.0",
+    "@clack/prompts": "^1.8.0",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
+    "@types/node": "^26.5.0",
     "tsup": "^8.3.5",
-    "typescript": "^5.7.0",
-    "vitest": "^2.1.8"
+    "typescript": "~7.0.2",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
   }
 }

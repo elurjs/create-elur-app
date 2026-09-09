@@ -24,7 +24,7 @@ function assertNotCancelled<T>(value: T | symbol): T {
         p.cancel("Operación cancelada. ¡Hasta pronto!");
         process.exit(0);
     }
-    return value;
+    return value as T;
 }
 
 export async function resolveOptions(args: CliArgs): Promise<ResolvedOptions> {
