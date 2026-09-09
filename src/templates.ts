@@ -1,6 +1,6 @@
 import type { AddonId } from "./addons/types.js";
 
-export type Bundler = "vite" | "elur-kit" | null;
+type Bundler = "vite" | "elur-kit" | null;
 
 export interface TemplateManifest {
     /** Valor usado en --template y en el prompt */

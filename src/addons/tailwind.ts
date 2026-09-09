@@ -91,7 +91,7 @@ function applyKit(ctx: ScaffoldContext): string[] {
     ];
 }
 
-export const tailwindAddon: Addon = {
+const tailwindAddon: Addon = {
     id: "tailwind",
     label: "Tailwind CSS",
     hint: "Utility-first CSS, preconfigurado (v4)",
