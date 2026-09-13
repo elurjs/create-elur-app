@@ -1,9 +1,9 @@
 {
-  "@elurjs/core": "^3.6.0",
+  "@elurjs/core": "^4.0.1",
   "@elurjs/kit": "latest",
-  "@elurjs/ionic": "^2.1.0",
-  "@elurjs/core-testing": "^0.1.4",
-  "@elurjs/vite-plugin-elur": "^2.1.0",
+  "@elurjs/ionic": "^2.1.1",
+  "@elurjs/core-testing": "^0.1.5",
+  "@elurjs/vite-plugin-elur": "^2.2.0",
   "@capacitor/android": "^8.5.0",
   "@capacitor/cli": "^8.5.0",
   "@capacitor/core": "^8.5.0",
