@@ -1,6 +1,6 @@
 {
   "name": "create-elur-app",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Scaffolding tool for Elur reactive framework",
   "type": "module",
   "bin": {
